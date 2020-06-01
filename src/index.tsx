@@ -1,13 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Redirect, Route } from "react-router-dom";
+import "typeface-roboto";
+
 import "./index.css";
 import App from "./App";
+import { RouterUrls } from "./Base/AppStates";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>,
+	<BrowserRouter>
+		{/* <Route exact={true} path="/" render={() => {
+			console.warn(`Redirecting from '/' to ${RouterUrls.TLine}`);
+			// Default route
+			return <Redirect to={{ pathname: RouterUrls.TLine }} />;
+		}} /> */}
+		<App isDev={true} verbose={false} />
+	</BrowserRouter>,
 	document.getElementById("root"),
 );
 
