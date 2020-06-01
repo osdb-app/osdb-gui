@@ -6,12 +6,12 @@
 	"javascript.preferences.quoteStyle": "double",
 	"typescript.preferences.quoteStyle": "double",
 	"cSpell.words": [
-		"OSDB"
+		"OSDB",
 	],
 	"eslint.validate": [
 		"javascript",
 		"javascriptreact",
 		"typescript",
-		"typescriptreact"
-	]
+		"typescriptreact",
+	],
 }
