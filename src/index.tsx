@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import "typeface-roboto";
 
@@ -7,6 +8,7 @@ import "./index.css";
 import App from "./App";
 import { RouterUrls } from "./Base/AppStates";
 import * as serviceWorker from "./serviceWorker";
+import { store } from "./App/Store";
 
 ReactDOM.render(
 	<BrowserRouter>
@@ -15,7 +17,9 @@ ReactDOM.render(
 			// Default route
 			return <Redirect to={{ pathname: RouterUrls.TLine }} />;
 		}} /> */}
-		<App isDev={true} verbose={false} />
+		<Provider store={store}>
+			<App isDev={true} verbose={false} />
+		</Provider>
 	</BrowserRouter>,
 	document.getElementById("root"),
 );

@@ -4,6 +4,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import { OsdbRoutedComponentBase, OsdbRouteComponentProps } from "./Base/ComponentBase";
+import { Counter } from "./features/counter/Counter";
 
 interface AppProps extends OsdbRouteComponentProps {
 	isDev: boolean;
@@ -16,18 +17,48 @@ class App extends OsdbRoutedComponentBase<AppProps, {}> {
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
+					<Counter />
 					<p>
 						Edit <code>src/App.tsx</code> and save to reload.
 					</p>
-					<a
-						className="App-link"
-						href="https://reactjs.org"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Learn React
-					</a>
-					<button onClick={() => { console.log("YO"); }}>Test</button>
+					<span>
+						<span>Learn </span>
+						<a
+							className="App-link"
+							href="https://reactjs.org/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							React
+						</a>
+						<span>, </span>
+						<a
+							className="App-link"
+							href="https://redux.js.org/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Redux
+						</a>
+						<span>, </span>
+						<a
+							className="App-link"
+							href="https://redux-toolkit.js.org/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Redux Toolkit
+						</a>
+					,<span> and </span>
+						<a
+							className="App-link"
+							href="https://react-redux.js.org/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							React Redux
+						</a>
+					</span>
 				</header>
 			</div>
 		);

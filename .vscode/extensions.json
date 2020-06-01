@@ -11,6 +11,7 @@
 		"streetsidesoftware.code-spell-checker",
 		"wayou.vscode-todo-highlight",
 		"yzhang.markdown-all-in-one",
+		"aeschli.vscode-css-formatter",
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": [
