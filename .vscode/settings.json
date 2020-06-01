@@ -1,5 +1,17 @@
 {
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"editor.detectIndentation": true,
+	"javascript.preferences.quoteStyle": "double",
+	"typescript.preferences.quoteStyle": "double",
 	"cSpell.words": [
 		"OSDB"
+	],
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact"
 	]
 }
