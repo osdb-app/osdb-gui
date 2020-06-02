@@ -1,0 +1,48 @@
+:root {
+	--drawer-width: 240px;
+}
+
+.root {
+	display: "flex",
+}
+
+.appBar {
+	width: calc(100% - var(--drawer-width));
+	margin-left: var(--drawer-width);
+}
+
+.drawer {
+	width: var(--drawer-width);
+	flex-shrink: 0;
+	white-space: "nowrap";
+}
+
+.drawerPaper {
+	width: var(--drawer-width),
+}
+
+.drawerHeader {
+	display: "flex";
+	align-items: "center";
+	padding: 0px 16px;
+	/* ...theme.mixins.toolbar; */
+	justify-content: "flex-start";
+}
+
+.drawerOpen {
+	width: var(--drawer-width);
+	transition: width 0.195s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.drawerClose {
+	/* transition: theme.transitions.create("width", {
+		easing: theme.transitions.easing.sharp, duration: theme.transitions.duration.leavingScreen,
+	}); */
+	transition: width 0.225s cubic-bezier(0.4, 0, 0.6, 1);
+	overflow-x: hidden;
+	width: 25px;
+}
+
+.content {
+	padding: 24px;
+}

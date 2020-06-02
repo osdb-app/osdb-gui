@@ -1,11 +1,9 @@
 import React from "react";
-import { StaticContext } from "react-router";
-import { RouteComponentProps } from "react-router-dom";
-
-import { StateDefinition, AppStates, RouterUrls, RouterState } from "./AppStates";
+import { StateDefinition, RouterUrls, OsdbRouteComponentProps, ComponentBaseProps } from "./AppStates";
+import { AppStates } from "./States";
 
 /** The Base Class for All Components */
-export abstract class ComponentBase<PropsType = {}, StateType = {}> extends React.Component<PropsType, StateType> {
+export abstract class ComponentBase<PropsType = ComponentBaseProps, StateType = {}> extends React.Component<PropsType, StateType> {
 	public constructor(props: PropsType) {
 		super(props);
 		this.BindSubclassMembers();
@@ -18,8 +16,6 @@ export abstract class ComponentBase<PropsType = {}, StateType = {}> extends Reac
 		});
 	}
 }
-
-export type OsdbRouteComponentProps = RouteComponentProps<{}, StaticContext, RouterState>;
 
 /** The Base Class for All Routed Components. That is, components that use `withRouter()` */
 export abstract class OsdbRoutedComponentBase<PropsType extends OsdbRouteComponentProps = OsdbRouteComponentProps, StateType = {}> extends ComponentBase<PropsType, StateType> {
