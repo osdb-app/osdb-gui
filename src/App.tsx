@@ -1,4 +1,4 @@
-import { MuiThemeProvider } from "@material-ui/core";
+import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
 import { map } from "lodash";
 import React from "react";
 import * as Router from "react-router-dom";
@@ -14,6 +14,7 @@ class App extends React.Component<AppProps, {}> {
 	public render(): React.ReactNode {
 		return (
 			<MuiThemeProvider theme={OsdbTheme}>
+				<CssBaseline />
 				<Shell>
 					<Counter />
 				</Shell>
