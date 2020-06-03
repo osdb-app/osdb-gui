@@ -1,6 +1,19 @@
 import React from "react";
-import { StateDefinition, RouterUrls, OsdbRouteComponentProps, ComponentBaseProps } from "./AppStates";
-import { AppStates } from "./States";
+import { RouteComponentProps, StaticContext } from "react-router";
+
+/** Defines the state variable used in React Router */
+export class RouterState {
+	/** Whether the Settings dialog is open */
+	public settings: boolean;
+	public constructor() {
+		this.settings = false;
+	}
+}
+
+export interface ComponentBaseProps {
+	isDev?: boolean;
+	verbose?: boolean;
+}
 
 /** The Base Class for All Components */
 export abstract class ComponentBase<PropsType = ComponentBaseProps, StateType = {}> extends React.Component<PropsType, StateType> {
@@ -17,11 +30,11 @@ export abstract class ComponentBase<PropsType = ComponentBaseProps, StateType = 
 	}
 }
 
+export type OsdbRouteComponentProps = RouteComponentProps<{}, StaticContext, RouterState> & ComponentBaseProps;
+
 /** The Base Class for All Routed Components. That is, components that use `withRouter()` */
 export abstract class OsdbRoutedComponentBase<PropsType extends OsdbRouteComponentProps = OsdbRouteComponentProps, StateType = {}> extends ComponentBase<PropsType, StateType> {
-	protected stateDefinition: StateDefinition;
 	public constructor(props: PropsType) {
 		super(props);
-		this.stateDefinition = AppStates[this.props.match.url as unknown as RouterUrls];
 	}
 }

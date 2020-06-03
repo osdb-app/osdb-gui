@@ -2,8 +2,11 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import logo from "../../logo.svg";
 
-import { OsdbRoutedComponentBase } from "../../Base/ComponentBase";
-import { OsdbRouteComponentProps } from "../../Base/AppStates";
+import { OsdbRoutedComponentBase, OsdbRouteComponentProps } from "../../Base/ComponentBase";
+import { withStyles, Theme, createStyles } from "@material-ui/core";
+
+const styles = (theme: Theme) => createStyles({
+});
 
 class Home extends OsdbRoutedComponentBase<OsdbRouteComponentProps> {
 	public render(): React.ReactNode {
@@ -13,4 +16,4 @@ class Home extends OsdbRoutedComponentBase<OsdbRouteComponentProps> {
 	}
 }
 
-export default withRouter(Home);
+export default withStyles(styles)(withRouter(Home));

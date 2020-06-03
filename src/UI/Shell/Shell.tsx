@@ -2,12 +2,12 @@ import * as Mui from "@material-ui/core";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import clsx from "clsx";
 import React from "react";
 import * as Router from "react-router-dom";
 
-import { OsdbRoutedComponentBase } from "../../Base/ComponentBase";
-import { OsdbRouteComponentProps } from "../../Base/AppStates";
+import { OsdbRoutedComponentBase, OsdbRouteComponentProps } from "../../Base/ComponentBase";
 
 const drawerWidth = 240;
 
@@ -98,25 +98,17 @@ class Shell extends OsdbRoutedComponentBase<ShellProps, ShellState> {
 					anchor="left"
 					open={this.state.drawerIsOpen}
 				>
-					<div className={this.props.classes.drawerHeader}>
-						<Mui.IconButton
-							color="inherit"
-							aria-label="open drawer"
-							onClick={this.click}
-							edge="start"
-							className={this.props.classes.menuButton}
-						>
-							<MenuIcon />
-						</Mui.IconButton>
-					</div>
+					<Mui.List>
+						<Mui.ListItem button={true} onClick={this.click}>
+							<Mui.ListItemIcon>{this.state.drawerIsOpen ? <ChevronLeftIcon /> : <MenuIcon />}</Mui.ListItemIcon>
+						</Mui.ListItem>
+					</Mui.List>
 					<Mui.Divider />
 					<Mui.List>
-						{["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-							<Mui.ListItem button key={text}>
-								<Mui.ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</Mui.ListItemIcon>
-								<Mui.ListItemText primary={text} />
-							</Mui.ListItem>
-						))}
+						<Mui.ListItem button={true}>
+							<Mui.ListItemIcon><InboxIcon /></Mui.ListItemIcon>
+							<Mui.ListItemText primary="Yo" />
+						</Mui.ListItem>
 					</Mui.List>
 					<Mui.Divider />
 					<Mui.List>

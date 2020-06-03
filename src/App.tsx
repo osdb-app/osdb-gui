@@ -6,8 +6,7 @@ import * as Router from "react-router-dom";
 import { Counter } from "./features/counter/Counter";
 import Shell from "./UI/Shell/Shell";
 import OsdbTheme from "./Base/Theme";
-import { OsdbRouteComponentProps } from "./Base/AppStates";
-import { AppStates } from "./Base/States";
+import { OsdbRouteComponentProps } from "./Base/ComponentBase";
 
 type AppProps = OsdbRouteComponentProps;
 
@@ -16,9 +15,6 @@ class App extends React.Component<AppProps, {}> {
 		return (
 			<MuiThemeProvider theme={OsdbTheme}>
 				<Shell>
-					<Router.Switch>
-						{map(AppStates, (state, url) => <Router.Route key={url} exact={true} path={url} component={state.component} />)}
-					</Router.Switch>
 					<Counter />
 				</Shell>
 			</MuiThemeProvider>
