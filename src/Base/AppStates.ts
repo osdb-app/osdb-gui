@@ -1,8 +1,6 @@
 import React from "react";
 import { RouteComponentProps, StaticContext } from "react-router";
 
-import Home from "../UI/Home/Home";
-
 export interface ComponentBaseProps {
 	isDev?: boolean;
 	verbose?: boolean;
