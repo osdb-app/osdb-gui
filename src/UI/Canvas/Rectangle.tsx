@@ -10,6 +10,8 @@ export class Rectangle extends CanvasComponent<RectangleProps> {
 	protected fabricShape(): fabric.Object {
 		if (!this._shape) {
 			this._shape = new fabric.Rect(this.props);
+			this._shape.selectable = false;
+			this._shape.hoverCursor = this.props.hoverCursor || "default";
 		}
 		return this._shape;
 	}
