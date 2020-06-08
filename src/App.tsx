@@ -2,7 +2,7 @@ import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
 import React from "react";
 import { Provider } from "react-redux";
 
-import Shell from "./UI/Shell/Shell";
+import { Shell } from "./UI/Shell/Shell";
 import OsdbTheme from "./Base/Theme";
 import { ComponentBaseProps } from "./Base/ComponentBase";
 import { Home } from "./UI/Home/Home";
@@ -16,9 +16,8 @@ export class App extends React.Component<AppProps, {}> {
 			<Provider store={store}>
 				<MuiThemeProvider theme={OsdbTheme}>
 					<CssBaseline />
-					<Shell>
-						<Home />
-					</Shell>
+					<Shell />
+					<Home />
 				</MuiThemeProvider>
 			</Provider>
 		);

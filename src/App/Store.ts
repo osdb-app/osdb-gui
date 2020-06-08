@@ -1,13 +1,15 @@
-import { configureStore, ThunkAction, Action, ConfigureStoreOptions } from "@reduxjs/toolkit";
-import { CounterReducer } from "./Reducer";
+import { configureStore, ThunkAction, Action, ConfigureStoreOptions, combineReducers } from "@reduxjs/toolkit";
+import { DrawerReducer } from "./Shell/Reducers";
+
+const rootReducer = combineReducers({
+	shell: DrawerReducer,
+});
 
 const configureStoreOptions: ConfigureStoreOptions = {
-	reducer: {
-		counter: CounterReducer,
-	},
+	reducer: rootReducer,
 };
 
 export const store = configureStore(configureStoreOptions);
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof rootReducer>;
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>;

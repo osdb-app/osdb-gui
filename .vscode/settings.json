@@ -7,6 +7,7 @@
 	"typescript.preferences.quoteStyle": "double",
 	"cSpell.words": [
 		"OSDB",
+		"clsx"
 	],
 	"eslint.validate": [
 		"javascript",
