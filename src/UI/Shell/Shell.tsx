@@ -5,9 +5,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import clsx from "clsx";
 import React from "react";
-import * as Router from "react-router-dom";
-
-import { OsdbRoutedComponentBase, OsdbRouteComponentProps } from "../../Base/ComponentBase";
+import { ComponentBaseProps, ComponentBase } from "../../Base/ComponentBase";
 
 const drawerWidth = 240;
 
@@ -66,9 +64,9 @@ interface ShellState {
 	drawerIsOpen: boolean;
 }
 
-type ShellProps = OsdbRouteComponentProps & Mui.WithStyles<typeof styles>;
+type ShellProps = ComponentBaseProps & Mui.WithStyles<typeof styles>;
 
-class Shell extends OsdbRoutedComponentBase<ShellProps, ShellState> {
+class Shell extends ComponentBase<ShellProps, ShellState> {
 	constructor(props: ShellProps) {
 		super(props);
 		this.state = {
@@ -128,4 +126,4 @@ class Shell extends OsdbRoutedComponentBase<ShellProps, ShellState> {
 	}
 }
 
-export default Mui.withStyles(styles)(Router.withRouter(Shell));
+export default Mui.withStyles(styles)(Shell);

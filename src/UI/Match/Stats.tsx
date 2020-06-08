@@ -1,15 +1,12 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 
-import { OsdbRoutedComponentBase, OsdbRouteComponentProps } from "../../Base/ComponentBase";
 import { Counter } from "../../Features/counter/Counter";
+import { ComponentBase } from "../../Base/ComponentBase";
 
-class Home extends OsdbRoutedComponentBase<OsdbRouteComponentProps> {
+export class Stats extends ComponentBase {
 	public render(): React.ReactNode {
 		return (
 			<Counter />
 		);
 	}
 }
-
-export default withRouter(Home);

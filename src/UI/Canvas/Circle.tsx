@@ -2,14 +2,14 @@ import { fabric } from "fabric";
 
 import { CanvasComponent, CanvasComponentProps } from "./CanvasComponent";
 
-export type RectangleProps = CanvasComponentProps & fabric.IRectOptions;
+export type CircleProps = CanvasComponentProps & fabric.IRectOptions;
 
-export class Rectangle extends CanvasComponent<RectangleProps> {
+export class Circle extends CanvasComponent<CircleProps> {
 	private _shape!: fabric.Rect;
 
 	protected fabricShape(): fabric.Object {
 		if (!this._shape) {
-			console.log("Rect");
+			console.log("Circle");
 			this._shape = new fabric.Rect(this.props);
 			this._shape.selectable = false;
 			this._shape.hoverCursor = this.props.hoverCursor || "default";
@@ -17,7 +17,7 @@ export class Rectangle extends CanvasComponent<RectangleProps> {
 		return this._shape;
 	}
 
-	public constructor(props: RectangleProps) {
+	public constructor(props: CircleProps) {
 		super(props);
 	}
 }

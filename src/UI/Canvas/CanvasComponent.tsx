@@ -3,8 +3,8 @@ import { fabric } from "fabric";
 import { ComponentBase, ComponentBaseProps } from "../../Base/ComponentBase";
 
 export interface CanvasComponentProps extends ComponentBaseProps {
-	children?: React.ComponentClass<CanvasComponentProps>;
-	canvas?: fabric.Canvas;
+	canvas: fabric.Canvas;
+	children?: undefined;
 }
 
 export abstract class CanvasComponent<Props extends CanvasComponentProps = CanvasComponentProps> extends ComponentBase<Props> {
@@ -15,11 +15,16 @@ export abstract class CanvasComponent<Props extends CanvasComponentProps = Canva
 	protected abstract fabricShape(): fabric.Object;
 
 	protected draw(): void {
-		this.props.canvas && this.props.canvas.add(this.fabricShape());
+		if (this.props.canvas) {
+			const shape = this.fabricShape();
+			this.props.canvas.add(shape);
+		}
 	}
 
 	protected erase(): void {
-		this.props.canvas && this.props.canvas.remove(this.fabricShape());
+		if (this.props.canvas) {
+			this.props.canvas.remove(this.fabricShape());
+		}
 	}
 
 	public componentDidUpdate(): void {

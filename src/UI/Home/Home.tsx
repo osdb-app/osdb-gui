@@ -1,19 +1,16 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 
-import { OsdbRoutedComponentBase, OsdbRouteComponentProps } from "../../Base/ComponentBase";
 import { Game } from "../Match/Game/Game";
-import Stats from "../Match/Stats";
+import { Stats } from "../Match/Stats";
+import { ComponentBase, ComponentBaseProps } from "../../Base/ComponentBase";
 
-class Home extends OsdbRoutedComponentBase<OsdbRouteComponentProps> {
+export class Home extends ComponentBase<ComponentBaseProps> {
 	public render(): React.ReactNode {
 		return (
 			<React.Fragment>
-				<Game height={68} width={105} multiplier={10} />
+				<Game multiplier={10} />
 				<Stats />
 			</React.Fragment>
 		);
 	}
 }
-
-export default withRouter(Home);

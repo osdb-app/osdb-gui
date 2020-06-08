@@ -4,10 +4,9 @@ import { isNumber } from "lodash";
 
 import { ComponentBase, ComponentBaseProps } from "../../../Base/ComponentBase";
 import { Pitch } from "./Pitch";
+import { Team } from "./Team";
 
 export interface GameProps extends ComponentBaseProps {
-	height: number;
-	width: number;
 	multiplier?: number;
 }
 
@@ -18,13 +17,15 @@ interface State {
 export class Game extends ComponentBase<GameProps, State> {
 	private readonly CANVAS_ID = "game";
 	private readonly DEFAULT_SIZE_MULTIPLIER: number;
+	private readonly PITCH_WIDTH = 110;
+	private readonly PITCH_HEIGHT = 70;
 
 	private renderWidth(): number {
-		return this.props.width * this.DEFAULT_SIZE_MULTIPLIER;
+		return this.PITCH_WIDTH * this.DEFAULT_SIZE_MULTIPLIER;
 	}
 
 	private renderHeight(): number {
-		return this.props.height * this.DEFAULT_SIZE_MULTIPLIER;
+		return this.PITCH_HEIGHT * this.DEFAULT_SIZE_MULTIPLIER;
 	}
 
 	public constructor(props: GameProps) {
@@ -49,6 +50,7 @@ export class Game extends ComponentBase<GameProps, State> {
 	public componentDidMount(): void {
 		const canvas = new fabric.Canvas(this.CANVAS_ID);
 		canvas.selection = false;
+		canvas.renderOnAddRemove = true;
 		this.updateCanvasDimensions();
 		this.setState({ canvas });
 	}
@@ -57,7 +59,8 @@ export class Game extends ComponentBase<GameProps, State> {
 		return (
 			<div>
 				<canvas id={this.CANVAS_ID} />
-				<Pitch />
+				{this.state.canvas && <Pitch canvas={this.state.canvas} height={this.renderHeight()} width={this.renderWidth()} />}
+				{this.state.canvas && <Team canvas={this.state.canvas} scale={this.DEFAULT_SIZE_MULTIPLIER} />}
 			</div>
 		);
 	}
