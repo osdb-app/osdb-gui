@@ -3,8 +3,8 @@ export interface ShellStoreState {
 }
 
 export enum DrawerActions {
-	Open = "DrawerActions.Open",
-	Close = "DrawerActions.Close",
+	Open = "Shell.Drawer.Open",
+	Close = "Shell.Drawer.Close",
 }
 
 interface OpenDrawerAction {

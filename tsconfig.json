@@ -18,7 +18,8 @@
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "preserve",
-		"noImplicitReturns": true
+		"noImplicitReturns": true,
+		"types": ["facebook-js-sdk"]
 	},
 	"include": [
 		"src"

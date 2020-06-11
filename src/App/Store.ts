@@ -1,8 +1,10 @@
 import { configureStore, ThunkAction, Action, ConfigureStoreOptions, combineReducers } from "@reduxjs/toolkit";
 import { DrawerReducer } from "./Shell/Reducers";
+import { UserReducer } from "./User/Reducers";
 
 const rootReducer = combineReducers({
 	shell: DrawerReducer,
+	user: UserReducer,
 });
 
 const configureStoreOptions: ConfigureStoreOptions = {
