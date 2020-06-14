@@ -1,4 +1,4 @@
-export interface ShellStoreState {
+export interface ShellState {
 	drawerIsOpen: boolean;
 }
 

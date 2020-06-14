@@ -1,10 +1,10 @@
-import { ShellStoreState, DrawerActionTypes, DrawerActions } from "./Types";
+import { ShellState, DrawerActionTypes, DrawerActions } from "./Types";
 
-const initialState: ShellStoreState = {
+const initialState: ShellState = {
 	drawerIsOpen: false,
 };
 
-export function DrawerReducer(state = initialState, action: DrawerActionTypes): ShellStoreState {
+export function DrawerReducer(state = initialState, action: DrawerActionTypes): ShellState {
 	switch (action.type) {
 		case DrawerActions.Open:
 			return { drawerIsOpen: true };

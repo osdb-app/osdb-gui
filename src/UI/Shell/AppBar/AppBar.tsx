@@ -1,10 +1,11 @@
 import * as Mui from "@material-ui/core";
-import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
 import React from "react";
 
 import { ComponentBase, ComponentBaseProps } from "../../../Base/ComponentBase";
 import { AppBarStyles } from "./AppBar.styles";
+import { UserAccount } from "./UserAccount";
 
 interface OwnProps {
 	drawerIsOpen: boolean;
@@ -36,11 +37,12 @@ export class NonStyledAppBar extends ComponentBase<AppBarProps> {
 							[this.props.classes.hide]: this.props.drawerIsOpen,
 						})}
 					>
-						<AccountBoxIcon />
+						<MenuIcon />
 					</Mui.IconButton>
-					<Mui.Typography variant="h6" noWrap>
-						Mini variant drawer
+					<Mui.Typography variant="h6" className={this.props.classes.title}>
+						Hello
 					</Mui.Typography>
+					<UserAccount />
 				</Mui.Toolbar>
 			</Mui.AppBar>
 		);

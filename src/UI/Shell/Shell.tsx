@@ -7,13 +7,9 @@ import { AppBar } from "./AppBar/AppBar";
 import { ShellStyles } from "./Shell.styles";
 import { Drawer } from "./Drawer/Drawer";
 import { RootState } from "../../App/Store";
-import { DrawerActions, ShellStoreState } from "../../App/Shell/Types";
+import { DrawerActions, ShellState } from "../../App/Shell/Types";
 
-interface ShellState {
-	drawerIsOpen: boolean;
-}
-
-type ShellProps = ShellStoreState & ConnectedProps<typeof Connector> & ShellState & ComponentBaseProps & Mui.WithStyles<typeof ShellStyles>;
+type ShellProps = ShellState & ConnectedProps<typeof Connector> & ComponentBaseProps & Mui.WithStyles<typeof ShellStyles>;
 
 class NonStyledShell extends ComponentBase<ShellProps> {
 	constructor(props: ShellProps) {

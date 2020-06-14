@@ -1,13 +1,13 @@
-import { UserStoreState, UserActionTypes, UserActions } from "./Types";
+import { UserAccountState, UserActionTypes, UserActions } from "./Types";
 
-const initialState: UserStoreState = {
+const initialState: UserAccountState = {
 	loggingIn: false,
 	loggingOut: false,
 	isLoggedIn: false,
 	error: false,
 };
 
-export function UserReducer(state = initialState, action: UserActionTypes): UserStoreState {
+export function UserReducer(state = initialState, action: UserActionTypes): UserAccountState {
 	switch (action.type) {
 		case UserActions.RequestLogin:
 			if (state.isLoggedIn) {
@@ -19,12 +19,10 @@ export function UserReducer(state = initialState, action: UserActionTypes): User
 				return state;
 			}
 			return { loggingIn: false, loggingOut: true, isLoggedIn: state.isLoggedIn, error: false };
-		case UserActions.UpdateInfo:
-			if (state.isLoggedIn) {
-				return { loggingIn: false, loggingOut: false, isLoggedIn: true, error: false };
-			} else {
-				return { loggingIn: false, loggingOut: false, isLoggedIn: false, error: false };
-			}
+		case UserActions.LoggedIn:
+			return { loggingIn: false, loggingOut: false, isLoggedIn: true, error: false };
+		case UserActions.LoggedOut:
+			return { loggingIn: false, loggingOut: false, isLoggedIn: false, error: false };
 		case UserActions.Error:
 			return { ...state, error: true };
 		default:

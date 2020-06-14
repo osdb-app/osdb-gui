@@ -25,6 +25,9 @@ export const AppBarStyles = (theme: Theme) => createStyles({
 	hide: {
 		display: "none",
 	},
+	title: {
+		flexGrow: 1,
+	},
 	toolbar: {
 		display: "flex",
 		alignItems: "center",

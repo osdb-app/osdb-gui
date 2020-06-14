@@ -1,4 +1,4 @@
-export interface UserStoreState {
+export interface UserAccountState {
 	loggingIn: boolean;
 	loggingOut: boolean;
 	isLoggedIn: boolean;
@@ -7,7 +7,8 @@ export interface UserStoreState {
 
 export enum UserActions {
 	RequestLogin = "User.RequestLogin",
-	UpdateInfo = "User.UpdateInfo",
+	LoggedIn = "User.LoggedIn",
+	LoggedOut = "User.LoggedOut",
 	RequestLogout = "User.RequestLogout",
 	Error = "User.Error",
 }
@@ -16,8 +17,12 @@ interface RequestLoginUserAction {
 	type: UserActions.RequestLogin;
 }
 
-interface UpdateInfoUserAction {
-	type: UserActions.UpdateInfo;
+interface LoggedInUserAction {
+	type: UserActions.LoggedIn;
+}
+
+interface LoggedOutUserAction {
+	type: UserActions.LoggedOut;
 }
 
 interface RequestLogoutUserAction {
@@ -28,4 +33,4 @@ interface ErrorUserAction {
 	type: UserActions.Error;
 }
 
-export type UserActionTypes = RequestLoginUserAction | UpdateInfoUserAction | RequestLogoutUserAction | ErrorUserAction;
+export type UserActionTypes = RequestLoginUserAction | LoggedInUserAction | LoggedOutUserAction | RequestLogoutUserAction | ErrorUserAction;
