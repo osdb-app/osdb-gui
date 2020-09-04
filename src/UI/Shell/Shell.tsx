@@ -9,10 +9,14 @@ import { Drawer } from "./Drawer/Drawer";
 import { RootState } from "../../App/Store";
 import { DrawerActions, ShellState } from "../../App/Shell/Types";
 
-type ShellProps = ShellState & ConnectedProps<typeof Connector> & ComponentBaseProps & Mui.WithStyles<typeof ShellStyles>;
+type ShellProps =
+	ShellState &
+	ConnectedProps<typeof Connector> &
+	ComponentBaseProps & Mui.WithStyles<typeof ShellStyles> &
+	{ children: React.ReactNode };
 
 class NonStyledShell extends ComponentBase<ShellProps> {
-	constructor(props: ShellProps) {
+	public constructor(props: ShellProps) {
 		super(props);
 	}
 

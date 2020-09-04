@@ -1,4 +1,6 @@
 import React from "react";
+import { RouteComponentProps } from "react-router-dom";
+
 /** Defines the state variable used in React Router */
 export class RouterState {
 	/** Whether the Settings dialog is open */
@@ -9,13 +11,15 @@ export class RouterState {
 }
 
 export interface ComponentBaseProps {
+	/** Development flag */
 	isDev?: boolean;
+	/** The verbosity of the warnings */
 	verbose?: boolean;
 }
 
 /** The Base Class for All Components */
-export abstract class ComponentBase<PropsType = ComponentBaseProps, StateType = {}> extends React.Component<PropsType, StateType> {
-	public constructor(props: PropsType) {
+export abstract class ComponentBase<Props = ComponentBaseProps, State = {}> extends React.Component<Props, State> {
+	public constructor(props: Props) {
 		super(props);
 		this.BindSubclassMembers();
 	}
@@ -28,4 +32,10 @@ export abstract class ComponentBase<PropsType = ComponentBaseProps, StateType = 
 			}
 		});
 	}
+}
+
+export type RoutedComponentBaseProps = ComponentBaseProps & RouteComponentProps;
+
+export abstract class RoutedComponentBase<Props extends RoutedComponentBaseProps = RouteComponentProps, State = {}> extends ComponentBase<Props, State> {
+
 }
