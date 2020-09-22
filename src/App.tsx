@@ -7,7 +7,6 @@ import { map } from "lodash";
 import { Shell } from "./UI/Shell/Shell";
 import OsdbTheme from "./Base/Theme";
 import { RoutedComponentBaseProps } from "./Base/ComponentBase";
-import { Home } from "./UI/Home/Home";
 import { store } from "./App/Store";
 import { RouteDefinitions } from "./Base/Router";
 
