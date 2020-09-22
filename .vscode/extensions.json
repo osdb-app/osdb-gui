@@ -6,8 +6,6 @@
 	"recommendations": [
 		"dbaeumer.vscode-eslint",
 		"eg2.vscode-npm-script",
-		"formulahendry.auto-close-tag",
-		"formulahendry.auto-rename-tag",
 		"streetsidesoftware.code-spell-checker",
 		"wayou.vscode-todo-highlight",
 		"yzhang.markdown-all-in-one",
